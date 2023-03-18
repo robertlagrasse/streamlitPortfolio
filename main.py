@@ -24,14 +24,19 @@ If you're a jive turkey who wants to stay relevant in the tech world, you better
 '''
 st.write(content)
 
-df = pandas.read_csv('data/data.csv',sep=';')
+df = pandas.read_csv('data/data.csv',sep=',')
 
+print(df)
 col3, col4 = st.columns(2)
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row['title'])
+        st.write(row['description'])
+        st.image('images/' + row['image'])
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row['title'])
+        st.write(row['description'])
+        st.image('images/' + row['image'])
