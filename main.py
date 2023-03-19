@@ -26,17 +26,19 @@ st.write(content)
 
 df = pandas.read_csv('data/data.csv',sep=',')
 
-print(df)
-col3, col4 = st.columns(2)
+midpoint = int(len(df)/2)
+col3, empty, col4 = st.columns([1.5, 0.5, 1.5])
 
 with col3:
-    for index, row in df[:10].iterrows():
+    for index, row in df[:midpoint].iterrows():
         st.header(row['title'])
         st.write(row['description'])
         st.image('images/' + row['image'])
+        st.write(f"[Source Code]({row['url']})")
 
 with col4:
-    for index, row in df[10:].iterrows():
+    for index, row in df[midpoint:].iterrows():
         st.header(row['title'])
         st.write(row['description'])
         st.image('images/' + row['image'])
+        st.write(f"[Source Code]({row['url']})")
