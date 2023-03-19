@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image('images/photo.jpeg')
+    st.image('images/photo.jpeg', use_column_width=True)
 with col2:
     st.title('Grandmaster Groove')
     content = '''
@@ -33,12 +33,12 @@ with col3:
     for index, row in df[:midpoint].iterrows():
         st.header(row['title'])
         st.write(row['description'])
-        st.image('images/' + row['image'])
+        st.image('images/' + row['image'], use_column_width=True)
         st.write(f"[Source Code]({row['url']})")
 
 with col4:
     for index, row in df[midpoint:].iterrows():
         st.header(row['title'])
         st.write(row['description'])
-        st.image('images/' + row['image'])
+        st.image('images/' + row['image'], use_column_width=True)
         st.write(f"[Source Code]({row['url']})")
